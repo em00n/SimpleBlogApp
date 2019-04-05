@@ -66,9 +66,9 @@ public class UpDeActivity extends AppCompatActivity {
         updateBtn = findViewById(R.id.updateBTN);
         deletBtn = findViewById(R.id.deletBTN);
         final String selectedkey = getIntent().getStringExtra("selectedkey");
-        String discrip = getIntent().getStringExtra("em");
-        String title = getIntent().getStringExtra("na");
-        String image = getIntent().getStringExtra("im");
+        String discrip = getIntent().getStringExtra("disc");
+        String title = getIntent().getStringExtra("title");
+        String image = getIntent().getStringExtra("url");
         preUid = getIntent().getStringExtra("uid");
 
 
@@ -76,9 +76,8 @@ public class UpDeActivity extends AppCompatActivity {
         titleET.setText(title);
         Picasso.get().load(image).into(imageView);
 
-//        mDatabaseUsers = FirebaseDatabase.getInstance().getReference().child("Users").child(mCurrentUser.getUid());
-//        mCurrentUser = mAuth.getCurrentUser();
-//        muid=mCurrentUser.getUid();
+
+
         muid = mAuth.getCurrentUser().getUid();
 
         //firebase
@@ -136,11 +135,6 @@ public class UpDeActivity extends AppCompatActivity {
                             final String sdownload_url = String.valueOf(downloadUrl);
 
 
-//                    dataReference.push()  //use this method to creat unik id
-//                            .setValue(sdownload_url);
-//                            Post post=new Post(title,discrip,useruid,sdownload_url);
-//                            databaseReference.push()  //use this method to creat unik id
-//                                    .setValue(post);
 
                             databaseReference
                                     .child(selectedkey)
@@ -149,8 +143,7 @@ public class UpDeActivity extends AppCompatActivity {
                                         @Override
                                         public void onSuccess(Void aVoid) {
                                             clear();
-//                                            Intent intent = new Intent(UpDeActivity.this, MainActivity.class);
-//                                            startActivity(intent);
+
                                             finish();
                                             pd.dismiss();
                                             Toast.makeText(UpDeActivity.this, "Updated", Toast.LENGTH_SHORT).show();
@@ -235,8 +228,6 @@ public class UpDeActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
 
-            // mButtonChooseImage.setImageURI(mImageUri);
-            // Picasso.get().load(mImageUri).into(mImageView);
         }
     }
 }

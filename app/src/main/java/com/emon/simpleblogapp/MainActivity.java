@@ -114,15 +114,15 @@ public class MainActivity extends AppCompatActivity {
                         preUid = model.getUid();
                         selectedkey = getSnapshots().getSnapshot(position).getKey();
                         // updateDelet(position);
-                        String em = model.getDiscrip();
-                        String na = model.getTitle();
-                        String im = model.getUrl();
+                        String disc = model.getDiscrip();
+                        String title = model.getTitle();
+                        String url = model.getUrl();
                         Intent intent = new Intent(MainActivity.this, UpDeActivity.class);
                         intent.putExtra("selectedkey", selectedkey);
-                        intent.putExtra("em", em);
-                        intent.putExtra("na", na);
+                        intent.putExtra("disc", disc);
+                        intent.putExtra("title", title);
                         intent.putExtra("uid", preUid);
-                        intent.putExtra("im", im);
+                        intent.putExtra("url", url);
                         startActivity(intent);
                     }
 
